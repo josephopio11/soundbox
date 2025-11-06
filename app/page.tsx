@@ -21,7 +21,7 @@ export default async function HomePage() {
   const folders = await getAudioFolders();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400">
+    <div className="min-h-screen bg-linear-to-br from-purple-400 via-pink-400 to-orange-400">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -38,7 +38,7 @@ export default async function HomePage() {
             <Link key={folder} href={`/folder/${encodeURIComponent(folder)}`}>
               <Card className="hover:scale-105 transition-transform duration-200 cursor-pointer bg-white/90 backdrop-blur-sm border-0 shadow-lg">
                 <CardContent className="p-8 text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-linear-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Folder className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 capitalize">

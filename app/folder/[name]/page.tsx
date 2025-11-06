@@ -32,7 +32,7 @@ export default async function FolderPage({
   const audioFiles = await getAudioFiles(decodedName);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400">
+    <div className="min-h-screen bg-linear-to-br from-blue-400 via-purple-400 to-pink-400">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-4 mb-8">
           <Link href="/">
