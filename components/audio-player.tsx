@@ -98,13 +98,13 @@ export default function AudioPlayer({
     .replace(/\b\w/g, (l) => l.toUpperCase()); // Capitalize first letter of each word
 
   return (
-    <Card className="bg-white/95 backdrop-blur-sm shadow-lg border-0">
+    <Card className="bg-white/95 dark:bg-black/95 backdrop-blur-sm shadow-lg border-0">
       <CardContent className="p-6">
         <audio ref={audioRef} src={filePath} preload="metadata" />
 
         <div className="flex items-center gap-4">
           <div
-            className={`w-16 h-16 bg-gradient-to-br ${colorClass} rounded-full flex items-center justify-center flex-shrink-0`}
+            className={`w-16 h-16 bg-linear-to-br ${colorClass} rounded-full flex items-center justify-center shrink-0`}
           >
             <Button
               onClick={togglePlay}
@@ -121,19 +121,19 @@ export default function AudioPlayer({
           </div>
 
           <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-bold text-gray-800 truncate mb-2">
+            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 truncate mb-2">
               {displayName}
             </h3>
 
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <span className="text-sm text-gray-600 w-12 text-right">
+                <span className="text-sm text-gray-600 dark:text-gray-300 w-12 text-right">
                   {formatTime(currentTime)}
                 </span>
                 <Slider
                   value={[duration ? (currentTime / duration) * 100 : 0]}
                   onValueChange={handleSeek}
-                  className="flex-1 [&>span:first-child]:h-2 [&>span:first-child]:bg-gray-200 [&_[role=slider]]:bg-gradient-to-r [&_[role=slider]]:from-purple-500 [&_[role=slider]]:to-pink-500 [&_[role=slider]]:w-4 [&_[role=slider]]:h-4 [&_[role=slider]]:border-0 [&>span:first-child_span]:bg-gradient-to-r [&>span:first-child_span]:from-purple-500 [&>span:first-child_span]:to-pink-500"
+                  className="flex-1 [&>span:first-child]:h-2 [&>span:first-child]:bg-gray-200 [&>span:first-child]:dark:bg-gray-500 **:[[role=slider]]:bg-linear-to-r **:[[role=slider]]:from-purple-500 **:[[role=slider]]:to-pink-500 **:[[role=slider]]:w-4 **:[[role=slider]]:h-4 **:[[role=slider]]:border-0 [&>span:first-child_span]:bg-linear-to-r [&>span:first-child_span]:from-purple-500 [&>span:first-child_span]:to-pink-500"
                 />
                 <span className="text-sm text-gray-600 w-12">
                   {formatTime(duration)}
@@ -145,7 +145,7 @@ export default function AudioPlayer({
                 <Slider
                   value={[volume]}
                   onValueChange={(value) => setVolume(value[0])}
-                  className="w-24 [&>span:first-child]:h-1 [&>span:first-child]:bg-gray-200 [&_[role=slider]]:bg-blue-500 [&_[role=slider]]:w-3 [&_[role=slider]]:h-3 [&_[role=slider]]:border-0 [&>span:first-child_span]:bg-blue-500"
+                  className="w-24 [&>span:first-child]:h-1 [&>span:first-child]:bg-gray-200 [&>span:first-child]:dark:bg-gray-400 **:[[role=slider]]:bg-blue-500 **:[[role=slider]]:w-3 **:[[role=slider]]:h-3 **:[[role=slider]]:border-0 [&>span:first-child_span]:bg-blue-500"
                 />
                 <Button
                   onClick={handleDownload}

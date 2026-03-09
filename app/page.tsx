@@ -21,7 +21,7 @@ export default async function HomePage() {
   const folders = await getAudioFolders();
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-purple-400 via-pink-400 to-orange-400">
+    <div className="min-h-screen bg-linear-to-br from-purple-400 dark:from-purple-950 dark:via-pink-950 dark:to-orange-950 via-pink-400 to-orange-400 ">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -36,15 +36,17 @@ export default async function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {folders.map((folder) => (
             <Link key={folder} href={`/folder/${encodeURIComponent(folder)}`}>
-              <Card className="hover:scale-105 transition-transform duration-200 cursor-pointer bg-white/90 backdrop-blur-sm border-0 shadow-lg">
+              <Card className="hover:scale-105 transition-transform duration-200 cursor-pointer bg-white/90 dark:bg-black/90 backdrop-blur-sm border-0 shadow-lg">
                 <CardContent className="p-8 text-center">
-                  <div className="w-20 h-20 bg-linear-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-linear-to-br from-blue-400 dark:from-blue-800 dark:to-purple-900 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Folder className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 capitalize">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 capitalize">
                     {folder.replace(/-/g, " ")}
                   </h3>
-                  <p className="text-gray-600 mt-2">Click to explore music!</p>
+                  <p className="text-gray-600 dark:text-gray-400 mt-2">
+                    Click to explore music!
+                  </p>
                 </CardContent>
               </Card>
             </Link>
@@ -67,8 +69,8 @@ export default async function HomePage() {
 
         {folders.length === 0 && (
           <div className="text-center mt-12">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto">
-              <Music className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+            <div className="bg-white/90 dark:bg-black/90 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto">
+              <Music className="w-16 h-16 text-gray-400  mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-700 mb-2">
                 No Music Yet!
               </h3>

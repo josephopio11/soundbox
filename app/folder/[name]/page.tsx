@@ -14,7 +14,7 @@ async function getAudioFiles(folderName: string) {
         file.endsWith(".mp3") ||
         file.endsWith(".wav") ||
         file.endsWith(".ogg") ||
-        file.endsWith(".m4a")
+        file.endsWith(".m4a"),
     );
   } catch (error) {
     console.error(error);
@@ -32,7 +32,7 @@ export default async function FolderPage({
   const audioFiles = await getAudioFiles(decodedName);
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-400 via-purple-400 to-pink-400">
+    <div className="min-h-screen bg-linear-to-br from-blue-400 dark:from-blue-900 via-purple-400 dark:via-purple-900 dark:to-pink-900 to-pink-400">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-4 mb-8">
           <Link href="/">
